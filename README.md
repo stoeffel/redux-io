@@ -46,7 +46,7 @@ Because it supports FSA actions, you can use redux-io in combination with [redux
 const io = IO(() => location.href);
 
 const action = createAction('FSA_ACTION');
-store.dispatch(action(io));
+store.dispatch(action(R.map(R.toUpper, io)));
 ```
 
 ## What's an IO?
