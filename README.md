@@ -26,6 +26,8 @@ const createStoreWithMiddleware = applyMiddleware(
 ### Example
 
 ```js
+import { IO } from 'ramda-fantasy';
+
 const io = IO(() => {
   document.title = "Goodbye World!";
   return { type: 'INCREMENT' };
