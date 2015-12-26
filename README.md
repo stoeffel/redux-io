@@ -43,8 +43,10 @@ Because it supports FSA actions, you can use redux-io in combination with [redux
 ### Example: Action creators
 
 ```js
-const getHrefIO = IO(() => location.href);
-store.dispatch({ type: 'ACTION', payload: getHrefIO });
+const io = IO(() => location.href);
+
+const action = createAction('FSA_ACTION');
+store.dispatch(action(io));
 ```
 
 ## What's an IO?

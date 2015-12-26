@@ -70,6 +70,8 @@ describe('redux-io', () => {
       spy();
       return 'test';
     });
-    store.dispatch({ type: 'FSA_ACTION', payload: io });
+
+    const action = createAction('FSA_ACTION');
+    store.dispatch(action(io));
   });
 });
