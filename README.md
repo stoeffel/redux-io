@@ -54,6 +54,7 @@ store.dispatch(action(R.map(R.toUpper, io)));
 You can use `redux-io` together with [`redux-future`](https://github.com/stoeffel/redux-future).
 
 ```js
+// futureIo :: Future(IO(String))
 const futureIo = new Future((rej, res) => {
   const io = IO(() => location.href);
 
