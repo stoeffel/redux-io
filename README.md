@@ -61,7 +61,7 @@ const futureIo = new Future((rej, res) => {
 });
 
 const action = createAction('FSA_ACTION');
-store.dispatch(action(futureIoo));
+store.dispatch(action(futureIo));
 ```
 
 
