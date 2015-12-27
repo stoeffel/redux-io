@@ -65,5 +65,13 @@ store.dispatch(action(futureIo));
 ```
 
 
-## What's an IO?
+## Related
+
+### What's an IO?
 * [mostly-adequate-guide  Chapter 8.5 Old McDonald had Effects...](https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch8.html)
+
+### Libraries
+
+* [ramda-fantasy](https://github.com/ramda/ramda-fantasy)
+* [fantasy-io](https://github.com/fantasy-land/fantasy-io)
+* [redux-future](https://github.com/stoeffel/redux-future)
