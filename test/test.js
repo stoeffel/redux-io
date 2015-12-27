@@ -2,7 +2,8 @@ import expect from 'expect';
 import { createStore, applyMiddleware } from 'redux';
 import { createAction } from 'redux-actions';
 import R from 'ramda';
-import { IO } from 'ramda-fantasy';
+import { IO, Future } from 'ramda-fantasy';
+import futureMiddleware from 'redux-future';
 
 import ioMiddleware from '../src';
 
@@ -32,7 +33,8 @@ describe('redux-io', () => {
     }
 
     const createStoreWithMiddleware = applyMiddleware(
-      ioMiddleware('runIO')
+      futureMiddleware
+    , ioMiddleware('runIO')
     )(createStore)
 
     store = createStoreWithMiddleware(counter);
@@ -62,7 +64,7 @@ describe('redux-io', () => {
     const spy = expect.createSpy()
 
     unsubscribe = store.subscribe(() => {
-      expect(store.getState().fsa).toEqual('test');
+      expect(store.getState().fsa).toEqual('TEST');
       expect(spy).toHaveBeenCalled()
       done();
     });
@@ -71,7 +73,30 @@ describe('redux-io', () => {
       return 'test';
     });
 
+
     const action = createAction('FSA_ACTION');
-    store.dispatch(action(io));
+    store.dispatch(action(R.map(R.toUpper, io)));
+  });
+
+  it('should work together with futures', done => {
+    const spy = expect.createSpy()
+
+    unsubscribe = store.subscribe(() => {
+      expect(store.getState().fsa).toEqual('back to the future');
+      expect(spy).toHaveBeenCalled()
+      done();
+    });
+    const future = new Future((rej, res) => {
+      const io = IO(() => {
+        spy();
+        return 'back to the future';
+      });
+
+      setTimeout(() => res(io), 100);
+    });
+
+
+    const action = createAction('FSA_ACTION');
+    store.dispatch(action(future));
   });
 });
