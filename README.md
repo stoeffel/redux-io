@@ -49,5 +49,21 @@ const action = createAction('FSA_ACTION');
 store.dispatch(action(R.map(R.toUpper, io)));
 ```
 
+### Example: Future(IO)
+
+You can use `redux-io` together with [`redux-future`](https://github.com/stoeffel/redux-future).
+
+```js
+const futureIo = new Future((rej, res) => {
+  const io = IO(() => location.href);
+
+  setTimeout(() => res(io), 2000);
+});
+
+const action = createAction('FSA_ACTION');
+store.dispatch(action(futureIoo));
+```
+
+
 ## What's an IO?
 * [mostly-adequate-guide  Chapter 8.5 Old McDonald had Effects...](https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch8.html)
