@@ -4,7 +4,7 @@ import { isFSA } from 'flux-standard-action';
 const typeOf = (type) => (val) => typeof val === type;
 const isFunction = typeOf('function');
 
-export default runIO => function futureMiddleware({ dispatch }) {
+export default runIO => function ioMiddleware({ dispatch }) {
   const isIO = io => io && isFunction(io[runIO]);
 
   return next => action => {
