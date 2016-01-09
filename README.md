@@ -76,3 +76,4 @@ store.dispatch(action(futureIo));
 * [ramda-fantasy](https://github.com/ramda/ramda-fantasy)
 * [fantasy-io](https://github.com/fantasy-land/fantasy-io)
 * [redux-future](https://github.com/stoeffel/redux-future)
+* [redux-either](https://github.com/stoeffel/redux-either)
