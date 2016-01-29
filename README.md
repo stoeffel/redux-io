@@ -69,7 +69,7 @@ store.dispatch(action(futureIo));
 ## Related
 
 ### What's an IO?
-* [mostly-adequate-guide  Chapter 8.5 Old McDonald had Effects...](https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch8.html)
+* [mostly-adequate-guide  Chapter 8.5 Old McDonald had Effects...](https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch8.html#old-mcdonald-had-effects)
 
 ### Libraries
 
