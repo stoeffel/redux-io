@@ -1,6 +1,6 @@
 {
   "name": "redux-io",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "FSA-compliant io monad middleware for redux",
   "main": "index.js",
   "scripts": {
